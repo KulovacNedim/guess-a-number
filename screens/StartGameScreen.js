@@ -37,7 +37,7 @@ const StartGameScreen = props => {
         setSelectedNumber(chosenNumber);
         Keyboard.dismiss();
     };
-
+    
     let confirmedOutput;
 
     if (confirmed) {
@@ -45,7 +45,7 @@ const StartGameScreen = props => {
             <Card style={styles.summaryContainer}>
                 <Text>You selected:</Text>
                 <NumberContainer>{selectedNumber}</NumberContainer>
-                <Button title="START GAME" />
+                <Button title="START GAME" onPress={() => props.onStartGame(selectedNumber)} />
             </Card>
         );
     }
@@ -55,9 +55,9 @@ const StartGameScreen = props => {
             Keyboard.dismiss();
         }}>
             <View style={styles.screen} >
-                <Text style={styles.title}>Start a New game!</Text>
+                <Text>Start a New game!</Text>
                 <Card style={styles.inputContainer}>
-                    <Text>Select a Number</Text>
+                    <Text style={styles.text}>Select a Number</Text>
                     <Input
                         style={styles.input}
                         blurOnSubmit
@@ -68,7 +68,7 @@ const StartGameScreen = props => {
                         onChangeText={numberInputHandler}
                         value={enteredValue}
                     />
-                    <View style={styles.buttonContainer}>
+                    <View style={styles.buttonContainer}> 
                         <View style={styles.button}>
                             <Button title="Reset"
                                 onPress={resetInputHandler}
@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginVertical: 10,
+        fontFamily: 'open-sans-bold'
     },
     buttonContainer: {
         flexDirection: 'row',
