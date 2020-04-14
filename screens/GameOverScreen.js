@@ -8,27 +8,29 @@ import Colors from '../constants/colors';
 
 const GameOverScreen = props => {
     return (
-        <ScrollView>
-            <View style={styles.screen}>
-                <TitleText>The Game is Over!</TitleText>
-                <View style={styles.imageContainer}>
-                    <Image
-                        // source={require('../assets/success.png')}
-                        source={{ uri: 'http://mathematics-in-europe.eu/wp-content/uploads/2016/02/GuessMyNumber.png' }}
-                        style={styles.image}
-                        resizeMode="cover"
-                    />
-                </View>
-                <View style={styles.resultContainer}>
-                    <BodyText style={styles.resultText}>
-                        Your phoen needed {' '}
-                        <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to guess
+        <SafeAreaView>
+            <ScrollView>
+                <View style={styles.screen}>
+                    <TitleText>The Game is Over!</TitleText>
+                    <View style={styles.imageContainer}>
+                        <Image
+                            // source={require('../assets/success.png')}
+                            source={{ uri: 'http://mathematics-in-europe.eu/wp-content/uploads/2016/02/GuessMyNumber.png' }}
+                            style={styles.image}
+                            resizeMode="cover"
+                        />
+                    </View>
+                    <View style={styles.resultContainer}>
+                        <BodyText style={styles.resultText}>
+                            Your phoen needed {' '}
+                            <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to guess
                     the number {' '}
-                        <Text style={styles.highlight}>{props.userNumber}</Text>.</BodyText>
+                            <Text style={styles.highlight}>{props.userNumber}</Text>.</BodyText>
+                    </View>
+                    <MainButton onPress={props.onRestart}>NEW GAME</MainButton>
                 </View>
-                <MainButton onPress={props.onRestart}>NEW GAME</MainButton>
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 
